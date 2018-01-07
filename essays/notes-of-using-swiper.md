@@ -26,20 +26,18 @@ Swiper 的使用筆記
     - 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；
     - 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)`` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
   
-#### 效果
+#### 效果 [源代碼](assets/scripts/notes-of-using-swiper.js)
 
 <!--EXAMPLE CODE BEGIN -->
+<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 <div class="example">
     <!-- Swiper -->
     <div class="exampler__swiper swiper-container">
         <div class="swiper-wrapper">
             <!-- Lazy image -->
             <div class="swiper-slide">
-                <img
-                        data-src="assets/images/blueberries@1x.jpg"
-                        data-srcset="assets/images/blueberries@1x.jpg 1x,
-                            assets/images/blueberries@2x.jpg 2x
-                        class="swiper-lazy">
+                <img data-src="assets/images/blueberries@1x.jpg"
+                     data-srcset="assets/images/blueberries@1x.jpg 1x,assets/images/blueberries@2x.jpg 2x" class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
             <!-- Lazy image with srscet-->
@@ -47,7 +45,7 @@ Swiper 的使用筆記
                 <img
                         data-src="assets/images/coffee@1x.jpg"
                         data-srcset="iassets/images/coffee@1x.jpg 1x,
-                            assets/images/coffee@2x.jpg 2x
+                            assets/images/coffee@2x.jpg 2x"
                         class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
@@ -75,13 +73,11 @@ Swiper 的使用筆記
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
-</div>
-<script src="assets/scripts/jquery.min.js"></script>
-<script src="assets/scripts/swiper.jquery.js"></script>
+</div><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
 <link rel="stylesheet" href="assets/styles/notes-of-using-swiper.css">
 <script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
 </script>
-<!--END-->
-
-<br/>
-以上實例 JS [源代碼](assets/scripts/notes-of-using-swiper.js)
+<script>
+console.log('當前瀏覽器', getDevicePixelRatio());
+initSwiper(); 
+</script>
