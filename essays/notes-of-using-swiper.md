@@ -22,9 +22,9 @@ Swiper 的使用筆記
 
   1. 為 DIV 添加額外的類名和 `data-bg-at1x` 、`data-bg-at2x` 屬性(用於放置@1x/@2x 圖片 URL)；
 
-  2. 在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：
-    - 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；
-    - 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)`` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
+  2. 在 onLazyImageLoad 回調里為該 DIV 設置 background-image：<br>
+    1. 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；<br>
+    2. 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
   
 #### 效果 [源代碼](assets/scripts/notes-of-using-swiper.js)
 
