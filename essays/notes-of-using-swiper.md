@@ -29,32 +29,16 @@ Swiper 的使用筆記
 #### 效果 [源代碼](assets/scripts/notes-of-using-swiper.js)
 
 <!--EXAMPLE CODE BEGIN -->
-<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 <div class="example">
     <!-- Swiper -->
     <div class="exampler__swiper swiper-container">
         <div class="swiper-wrapper">
-            <!-- Lazy image -->
-            <div class="swiper-slide">
-                <img data-src="assets/images/blueberries@1x.jpg"
-                     data-srcset="assets/images/blueberries@1x.jpg 1x,assets/images/blueberries@2x.jpg 2x" class="swiper-lazy">
-                <div class="swiper-lazy-preloader"></div>
-            </div>
             <!-- Lazy image with srscet-->
             <div class="swiper-slide">
-                <img
-                        data-src="assets/images/coffee@1x.jpg"
-                        data-srcset="iassets/images/coffee@1x.jpg 1x,
-                            assets/images/coffee@2x.jpg 2x"
-                        class="swiper-lazy">
-                <div class="swiper-lazy-preloader"></div>
-            </div>
-            <!-- Element with lazy background image -->
-            <div class="swiper-slide">
                 <div
-                        class="swiper-lazy"
-                        data-background="assets/images/pet@1x.jpg"
-
+                        class="swiper-lazy swiper-lazy--retina-bg"
+                        data-bg-at1x="assets/images/coffee@1x.jpg"
+                        data-bg-at2x="assets/images/coffee@2x.jpg"
                 >
                     <div class="swiper-lazy-preloader"></div>
                 </div>
@@ -63,8 +47,8 @@ Swiper 的使用筆記
             <div class="swiper-slide">
                 <div
                         class="swiper-lazy swiper-lazy--retina-bg"
-                        data-bg-at1x="assets/images/fruit@1x.jpg"
-                        data-bg-at2x="assets/images/fruit@2x.jpg"
+                        data-bg-at1x="assets/images/pet@1x.jpg"
+                        data-bg-at2x="assets/images/pet@2x.jpg"
                 >
                     <div class="swiper-lazy-preloader"></div>
                 </div>
@@ -75,6 +59,7 @@ Swiper 的使用筆記
     </div>
 </div><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
 <link rel="stylesheet" href="assets/styles/notes-of-using-swiper.css">
+<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
 <script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
 </script>
 <script>
