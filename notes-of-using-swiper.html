@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Swiper 的使用筆記 - 一條人</title>
+
+                         <script src="statics/vendor/bundle_cda852384a56012d45e3.js"></script>
+                    
+
+                         <script src="statics/scripts/app_6bf41f40bfde9db1a9ed.js"></script>
+                             <link rel="stylesheet" href="statics/styles/app_6bf41f40bfde9db1a9ed.css">
+            
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body class="body body--essay">
+<div class="nav">
+    <div class="nav__logo">
+        <a class="link" href="index.html">yitiaoren.com</a>
+    </div>
+    <div class="nav__bread">
+        /essays/Swiper 的使用筆記    </div>
+</div>
+
+<div class="container container--essay">
+    
+    <div class="container-wrapper container-wrapper--essay">
+
+        <div class="essay-item">
+            <div class="essay-item__header">
+                <h1>
+                    Swiper 的使用筆記
+                </h1>
+                <div class="date">
+                    2018-01-07 17:03:31
+                </div>
+            </div>
+
+            <div class="essay-item__container">
+                <div class="typo">
+                                            <h4>關於Swiper</h4>
+<blockquote><p> <a href="https://github.com/nolimits4web/Swiper">Swiper</a> 是一款開源免費、強大的移動端觸摸滑動插件，<a href="http://www.swiper.com.cn/">中文文檔</a>豐富，不詳述。</p>
+</blockquote>
+<h4>使用過程中遇到的問題</h4>
+<p>當使用 DIV 背景替代 IMG 標籤時，無法像 IMG 標籤可通過 data-srcset 設置多張圖片適應不同顯示屏。</p>
+<h5>IMG 標籤 data-srcset</h5>
+<p>當使用 DIV 背景替代 IMG 標籤時，像 IMG 標籤可通過 data-srcset 設置多張圖片？</p>
+<pre><code>&lt;img
+    data-src="assets/images/blueberries@1x.jpg"
+    data-srcset="blueberries@1x.jpg 1x,blueberries@2x.jpg 2x"
+    class="swiper-lazy"&gt;
+</code></pre>
+<h4>解决方法</h4>
+<ul>
+<li>方法一
+可以結合 <a href="https://github.com/aFarkas/lazysizes">lazysizes</a> 的 <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset">bgset plugins</a> 解決;
+  <br></li>
+<li><p>方法二
+當需要懶加載並且達到滑動到某一張圖片才加載下一張圖片時，方法一不太適宜。
+通過 swiper 的 onLazyImageLoad 回調函數解決：
+1. 為 DIV 添加額外的類名和 <code>data-bg-at1x</code> 、<code>data-bg-at2x</code> 屬性(用於放置@1x/@2x 圖片 URL)；</p>
+<ol>
+<li>在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：<ul>
+<li>使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；</li>
+<li>通過 JS 判斷瀏覽器 <code>devicePixelRetio</code> 直接使用 <code>url(/path/to/image)</code>` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4>效果</h4>
+<!--EXAMPLE CODE BEGIN -->
+<div class="example">
+    <!-- Swiper -->
+    <div class="exampler__swiper swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Lazy image -->
+            <div class="swiper-slide">
+                <img
+                        data-src="iassets/images/blueberries@1x.jpg"
+                        data-srcset="iassets/images/blueberries@1x.jpg 1x,
+                            assets/images/blueberries@2x.jpg 2x,
+                            assets/images/blueberries@3x.jpg 3x"
+                        class="swiper-lazy">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+            <!-- Lazy image with srscet-->
+            <div class="swiper-slide">
+                <img
+                        data-src="assets/images/coffee@1x.jpg"
+                        data-srcset="iassets/images/coffee@1x.jpg 1x,
+                            assets/images/coffee@2x.jpg 2x,
+                            assets/images/coffee@3x.jpg 3x"
+                        class="swiper-lazy">
+                <div class="swiper-lazy-preloader"></div>
+            </div>
+            <!-- Element with lazy background image -->
+            <div class="swiper-slide">
+                <div
+                        class="swiper-lazy"
+                        data-background="assets/images/pet@1x.jpg"
+
+                >
+                    <div class="swiper-lazy-preloader"></div>
+                </div>
+            </div>
+            <!-- Element with lazy background image -->
+            <div class="swiper-slide">
+                <div
+                        class="swiper-lazy swiper-lazy--retina-bg"
+                        data-bg-at1x="assets/images/fruit@1x.jpg"
+                        data-bg-at2x="assets/images/fruit@2x.jpg"
+                >
+                    <div class="swiper-lazy-preloader"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<p><script src="assets/scripts/jquery.min.js"></script>
+<script src="assets/scripts/swiper.jquery.js"></script>
+<link rel="stylesheet" href="assets/styles/notes-of-using-swiper.css">
+<script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
+</script>
+<!--END--></p>
+
+                                    </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+    <div class="footer">
+        <div class="footer__copyright">
+            &copy; 2017 Wayne Tse
+        </div>
+    </div>
+</body>
+</html>

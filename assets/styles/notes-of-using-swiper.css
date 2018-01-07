@@ -1,0 +1,16 @@
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+}
+
+.swiper-container {
+    width: 600px;
+    height: 300px;
+}
+
+.swiper-lazy {
+    height: 426px;
+    background: #eee no-repeat center 0;
+    background-size: auto 100%;
+}
