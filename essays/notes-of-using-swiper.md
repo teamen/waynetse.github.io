@@ -8,9 +8,19 @@ Swiper 的使用筆記
 #### 使用過程中遇到的問題
 當使用 DIV 背景替代 IMG 標籤時，無法像 IMG 標籤可通過 data-srcset 設置多張圖片適應不同顯示屏。
   
-##### IMG 標籤 data-srcset
-當使用 DIV 背景替代 IMG 標籤時，像 IMG 標籤可通過 data-srcset 設置多張圖片？
+##### IMG 標籤 data-srcset 示例
+    <img
+        class="swiper-lazy"
+        data-src="assets/images/blueberries@1x.jpg"
+        data-srcset=
+            "assets/images/blueberries@1x.jpg 1x,
+             assets/images/blueberries@2x.jpg 2x,
+             assets/images/blueberries@3x.jpg 3x"／>
   
+<br>
+如何讓 DIV background 也可以設置 1X 圖片、2X 圖片 ？
+👇
+
 ##### 解决方法
   
 - 方法一
@@ -26,7 +36,8 @@ Swiper 的使用筆記
     1. 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；<br>
     2. 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
   
-#### 效果 [源代碼](assets/scripts/notes-of-using-swiper.js)
+#### 實現效果
+👉 [源代碼](assets/scripts/notes-of-using-swiper.js)
 
 <!--EXAMPLE CODE BEGIN -->
 <div class="example">
@@ -68,3 +79,6 @@ Swiper 的使用筆記
 console.log('當前瀏覽器', getDevicePixelRatio());
 initSwiper(); 
 </script>
+
+<br>
+<br>
