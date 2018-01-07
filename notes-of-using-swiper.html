@@ -53,18 +53,18 @@
 <p>當使用 DIV 背景替代 IMG 標籤時，像 IMG 標籤可通過 data-srcset 設置多張圖片？</p>
 <h5>解决方法</h5>
 <ul>
-<li>方法一
-可以結合 <a href="https://github.com/aFarkas/lazysizes">lazysizes</a> 的 <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset">bgset plugins</a> 解決;
-  <br></li>
+<li><p>方法一
+可以結合 <a href="https://github.com/aFarkas/lazysizes">lazysizes</a> 的 <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset">bgset plugins</a> 解決;</p>
+</li>
 <li><p>方法二
 當需要懶加載並且達到滑動到某一張圖片才加載下一張圖片時，方法一不太適宜。
-通過 swiper 的 onLazyImageLoad 回調函數解決：
-1. 為 DIV 添加額外的類名和 <code>data-bg-at1x</code> 、<code>data-bg-at2x</code> 屬性(用於放置@1x/@2x 圖片 URL)；</p>
+通過 swiper 的 onLazyImageLoad 回調函數解決：</p>
 <ol>
-<li>在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：<ul>
-<li>使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；</li>
-<li>通過 JS 判斷瀏覽器 <code>devicePixelRetio</code> 直接使用 <code>url(/path/to/image)</code>` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；</li>
-</ul>
+<li><p>為 DIV 添加額外的類名和 <code>data-bg-at1x</code> 、<code>data-bg-at2x</code> 屬性(用於放置@1x/@2x 圖片 URL)；</p>
+</li>
+<li><p>在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：
+  - 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；
+  - 通過 JS 判斷瀏覽器 <code>devicePixelRetio</code> 直接使用 <code>url(/path/to/image)</code>` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；</p>
 </li>
 </ol>
 </li>
@@ -78,10 +78,9 @@
             <!-- Lazy image -->
             <div class="swiper-slide">
                 <img
-                        data-src="iassets/images/blueberries@1x.jpg"
-                        data-srcset="iassets/images/blueberries@1x.jpg 1x,
-                            assets/images/blueberries@2x.jpg 2x,
-                            assets/images/blueberries@3x.jpg 3x"
+                        data-src="assets/images/blueberries@1x.jpg"
+                        data-srcset="assets/images/blueberries@1x.jpg 1x,
+                            assets/images/blueberries@2x.jpg 2x
                         class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
@@ -90,8 +89,7 @@
                 <img
                         data-src="assets/images/coffee@1x.jpg"
                         data-srcset="iassets/images/coffee@1x.jpg 1x,
-                            assets/images/coffee@2x.jpg 2x,
-                            assets/images/coffee@3x.jpg 3x"
+                            assets/images/coffee@2x.jpg 2x
                         class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
@@ -126,7 +124,8 @@
 <script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
 </script>
 <!--END--></p>
-<p>以上實例 JS <a href="assets/scripts/notes-of-using-swiper.js">源代碼</a></p>
+<p>&lt;br/&gt;
+以上實例 JS <a href="assets/scripts/notes-of-using-swiper.js">源代碼</a></p>
 
                                     </div>
 

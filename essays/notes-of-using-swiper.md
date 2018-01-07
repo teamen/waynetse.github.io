@@ -7,27 +7,25 @@ Swiper 的使用筆記
   
 #### 使用過程中遇到的問題
 當使用 DIV 背景替代 IMG 標籤時，無法像 IMG 標籤可通過 data-srcset 設置多張圖片適應不同顯示屏。
-
   
 ##### IMG 標籤 data-srcset
 當使用 DIV 背景替代 IMG 標籤時，像 IMG 標籤可通過 data-srcset 設置多張圖片？
-   
+  
 ##### 解决方法
   
 - 方法一
 可以結合 [lazysizes](https://github.com/aFarkas/lazysizes) 的 [bgset plugins](https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset) 解決;
-    <br>
+  
 - 方法二
 當需要懶加載並且達到滑動到某一張圖片才加載下一張圖片時，方法一不太適宜。
 通過 swiper 的 onLazyImageLoad 回調函數解決：
+
   1. 為 DIV 添加額外的類名和 `data-bg-at1x` 、`data-bg-at2x` 屬性(用於放置@1x/@2x 圖片 URL)；
-   
+
   2. 在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：
     - 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；
     - 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)`` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
   
-
-
 #### 效果
 
 <!--EXAMPLE CODE BEGIN -->
@@ -38,10 +36,9 @@ Swiper 的使用筆記
             <!-- Lazy image -->
             <div class="swiper-slide">
                 <img
-                        data-src="iassets/images/blueberries@1x.jpg"
-                        data-srcset="iassets/images/blueberries@1x.jpg 1x,
-                            assets/images/blueberries@2x.jpg 2x,
-                            assets/images/blueberries@3x.jpg 3x"
+                        data-src="assets/images/blueberries@1x.jpg"
+                        data-srcset="assets/images/blueberries@1x.jpg 1x,
+                            assets/images/blueberries@2x.jpg 2x
                         class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
@@ -50,8 +47,7 @@ Swiper 的使用筆記
                 <img
                         data-src="assets/images/coffee@1x.jpg"
                         data-srcset="iassets/images/coffee@1x.jpg 1x,
-                            assets/images/coffee@2x.jpg 2x,
-                            assets/images/coffee@3x.jpg 3x"
+                            assets/images/coffee@2x.jpg 2x
                         class="swiper-lazy">
                 <div class="swiper-lazy-preloader"></div>
             </div>
@@ -87,5 +83,5 @@ Swiper 的使用筆記
 </script>
 <!--END-->
 
-
+<br/>
 以上實例 JS [源代碼](assets/scripts/notes-of-using-swiper.js)
