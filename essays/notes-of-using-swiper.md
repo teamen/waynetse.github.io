@@ -11,11 +11,11 @@ Swiper 的使用筆記
 ##### IMG 標籤 data-srcset 示例
     <img
         class="swiper-lazy"
-        data-src="assets/images/blueberries@1x.jpg"
+        data-src="blueberries@1x.jpg"
         data-srcset=
-            "assets/images/blueberries@1x.jpg 1x,
-             assets/images/blueberries@2x.jpg 2x,
-             assets/images/blueberries@3x.jpg 3x"／>
+            "blueberries@1x.jpg 1x,
+             blueberries@2x.jpg 2x,
+             blueberries@3x.jpg 3x"／>
   
 <br>
 如何讓 DIV background 也可以設置 1X 圖片、2X 圖片 ？
@@ -30,7 +30,7 @@ Swiper 的使用筆記
 當需要懶加載並且達到滑動到某一張圖片才加載下一張圖片時，方法一不太適宜。
 通過 swiper 的 onLazyImageLoad 回調函數解決：
 
-  1. 為 DIV 添加額外的類名和 `data-bg-at1x` 、`data-bg-at2x` 屬性(用於放置@1x/@2x 圖片 URL)；
+  1. 為 DIV 添加額外的類名和 `data-bg-at1x` 、`data-bg-at2x` 屬性(用於放置 @1x / @2x 圖片 URL)；
 
   2. 在 onLazyImageLoad 回調里為該 DIV 設置 background-image：<br>
     1. 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；<br>
