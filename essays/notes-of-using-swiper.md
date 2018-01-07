@@ -11,14 +11,8 @@ Swiper 的使用筆記
   
 ##### IMG 標籤 data-srcset
 當使用 DIV 背景替代 IMG 標籤時，像 IMG 標籤可通過 data-srcset 設置多張圖片？
-    <img
-        data-src="assets/images/blueberries@1x.jpg"
-        data-srcset="blueberries@1x.jpg 1x,blueberries@2x.jpg 2x"
-        class="swiper-lazy">
-
    
-   
-#### 解决方法
+##### 解决方法
   
 - 方法一
 可以結合 [lazysizes](https://github.com/aFarkas/lazysizes) 的 [bgset plugins](https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset) 解決;
@@ -31,6 +25,8 @@ Swiper 的使用筆記
   2. 在 onLazyImageLoad 回調里獲取該 DIV 的 背景圖片 URL，為該 DIV 設置 background-image：
     - 使用 -webkit-image-set(/path/to/image@1x 1x, /path/to/image@2x 1x) 設置,不支持部分瀏覽器（e.g: firefox)；
     - 通過 JS 判斷瀏覽器 `devicePixelRetio` 直接使用 `url(/path/to/image)`` 設置對應的背景(兼容不支持 -webkit-image-set 的瀏覽器)；
+  
+
 
 #### 效果
 
@@ -90,3 +86,6 @@ Swiper 的使用筆記
 <script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
 </script>
 <!--END-->
+
+
+以上實例 JS [源代碼](assets/scripts/notes-of-using-swiper.js)
