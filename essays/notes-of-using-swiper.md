@@ -57,9 +57,11 @@ Swiper 的使用筆記
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
-</div><script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+</div>
+<script src="assets/scripts/jquery.min.js"></script>
+<script src="assets/scripts/swiper.jquery.js"></script>
 <link rel="stylesheet" href="assets/styles/notes-of-using-swiper.css">
-<link href="https://cdn.bootcss.com/Swiper/3.4.0/css/swiper.min.css" rel="stylesheet">
+<link href="assets/styles/swiper.min.css" rel="stylesheet">
 <script type="text/javascript" src="assets/scripts/notes-of-using-swiper.js">
 </script>
 <script>

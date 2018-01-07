@@ -27,3 +27,19 @@
     height: inherit;
     width: auto;
 }
+
+
+@media (max-width: 638px) {
+
+    .swiper-container {
+        height: 213px;
+        width: 320px;
+
+    }
+
+    .swiper-lazy {
+        height: 213px;
+        width: 320px;
+    }
+
+}
