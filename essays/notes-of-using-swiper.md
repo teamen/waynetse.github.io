@@ -1,5 +1,5 @@
 Swiper 的使用筆記
-2018-01-07 17:03:31
+2018-01-07 21:16:31
 
 #### 關於Swiper
 >  [Swiper](https://github.com/nolimits4web/Swiper) 是一款開源免費、強大的移動端觸摸滑動插件，[中文文檔](http://www.swiper.com.cn/)豐富，不詳述。
