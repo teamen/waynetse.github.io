@@ -36,7 +36,7 @@ categories 表大致的字段如上，與樹形結構相關的字段為  `_lft` 
     border-collapse: collapse;
     width: 80%;
 }
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 800px) {
     .data-table {
         width: 100%;
     }
