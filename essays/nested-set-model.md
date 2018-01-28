@@ -36,6 +36,11 @@ categories 表大致的字段如上，與樹形結構相關的字段為  `_lft` 
     border-collapse: collapse;
     width: 80%;
 }
+@media screen and (max-width: 300px) {
+    .data-table {
+        width: 100%;
+    }
+}
 .data-table thead {
     background: RGBA(240, 243, 245, 1.00);
 }
@@ -130,7 +135,7 @@ categories 表大致的字段如上，與樹形結構相關的字段為  `_lft` 
    
    
 ##### 插入後代節點
-往節點「後段」插入多一個子節點「Linux」：
+往節點「後端」插入多一個子節點「Linux」：
     
 按圖中遍歷順序，在「後端」節點後面才遍歷到的兄弟／父親節點左右編號需要調整，插入最好在一個事務里操作。
     
@@ -173,7 +178,7 @@ categories 表大致的字段如上，與樹形結構相關的字段為  `_lft` 
 <br>
 
 ##### 樹的深度（分類級別）
-記根節點所在的層深度為0，則其子節點深度為1，依次類推。
+記根節點所在的層深度為 0 ，則其子節點深度為 1 ，依次類推。
 查詢節點「後端」的深度：
     
     select count(*) from `categories` as `_d` 

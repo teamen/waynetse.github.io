@@ -6,6 +6,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="keywords" content="    一条人, 一條人, 一條人的博客, 技術博客, 個人博客, 一條人的部落格,  嵌套集模型（樹）, nested-set-model
+"/>
+    <meta name="description" content="    一條人的博客 -
+    嵌套集模型（樹）/nested-set-model
+
+"/>
+
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="一條人">
+    <meta name="application-name" content="一條人的博客">
+
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+
     <title>嵌套集模型（樹） - 一條人</title>
 
                          <script src="statics/vendor/bundle_cda852384a56012d45e3.js"></script>
@@ -77,6 +93,11 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" /></p>
     line-height: 1.6;
     border-collapse: collapse;
     width: 80%;
+}
+@media screen and (max-width: 300px) {
+    .data-table {
+        width: 100%;
+    }
 }
 .data-table thead {
     background: RGBA(240, 243, 245, 1.00);
@@ -168,7 +189,7 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" /></p>
 <p><br></p>
 <h4>查詢 SQL</h4>
 <h5>插入後代節點</h5>
-<p>往節點「後段」插入多一個子節點「Linux」：</p>
+<p>往節點「後端」插入多一個子節點「Linux」：</p>
 <p>按圖中遍歷順序，在「後端」節點後面才遍歷到的兄弟／父親節點左右編號需要調整，插入最好在一個事務里操作。</p>
 <pre><code>update `categories` set  
     `_lft` = case 
@@ -204,7 +225,7 @@ where `_lft` between 10 and 17 and id &lt;&gt;6;
 </code></pre>
 <p><br></p>
 <h5>樹的深度（分類級別）</h5>
-<p>記根節點所在的層深度為0，則其子節點深度為1，依次類推。
+<p>記根節點所在的層深度為 0 ，則其子節點深度為 1 ，依次類推。
 查詢節點「後端」的深度：</p>
 <pre><code>select count(*) from `categories` as `_d` 
   where 
