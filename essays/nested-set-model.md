@@ -22,10 +22,10 @@ width="100%"
 pluginspage="http://www.adobe.com/svg/viewer/install/" />
 
 ##### 數據表結構
-    categories(id, name, _lft, _rgt, parent_id, created_at, updated_at)
+categories(id, name, _lft, _rgt, parent_id, created_at, updated_at)
     
-categories 表大致的字段如上，與樹形結構相關的字段為 `_lft`, `_rgt`, `parent_id`：
-*`_lft`* 和  *`_rgt`* 用於存儲節點的編號， *parent_id* 用於存儲父節點的 *`id`*。
+categories 表大致的字段如上，與樹形結構相關的字段為  `_lft` ,  `_rgt` ,  `parent_id` ：
+*`_lft`*  和   *`_rgt`*  用於存儲節點的編號， *parent_id*  用於存儲父節點的  *`id`* 。
   
   
 詳細的表結構和示例數據參見*附件* 👉 [categories.sql](assets/attachments/2018/0128/categories.sql)
@@ -143,28 +143,22 @@ categories 表大致的字段如上，與樹形結構相關的字段為 `_lft`, 
             else `_rgt` end 
         where 
             (`_lft` >= 15 or `_rgt` >= 15);
-            
-
-  
-    
-
     
     insert into `categories` 
         (`name`, `parent_id`, `_lft`, `_rgt`, `created_at`) 
     values 
         ("Linux", 6, 15, 16, "2018-01-28 10:10:00");
-        
 
-   
-   
+<br>
+
 ##### 查詢後代節點
 以節點「後端」為例，查詢子節點：
     
     select * from `categories` 
     where `_lft` between 10 and 17 and id <>6;
-    
 
-   
+<br>
+
 ##### 查詢祖先節點
 以節點「後端」為例，查詢其祖先節點：
     
@@ -175,9 +169,9 @@ categories 表大致的字段如上，與樹形結構相關的字段為 `_lft`, 
         between `_lft` and `_rgt`
       and 
         `id` <> 6;
-        
 
-   
+<br>
+
 ##### 樹的深度（分類級別）
 記根節點所在的層深度為0，則其子節點深度為1，依次類推。
 查詢節點「後端」的深度：
@@ -187,9 +181,9 @@ categories 表大致的字段如上，與樹形結構相關的字段為 `_lft`, 
         (10 between `_d`.`_lft` and `_d`.`_rgt`)
       and 
          `_d`.`_lft` <> 10; 
-         
 
-   
+<br>
+
 #### PHP 相關的 PKG
 - [etrepat/baum](https://github.com/etrepat/baum)
 - [laravel-nestedset](https://github.com/lazychaser/laravel-nestedset)

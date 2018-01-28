@@ -68,11 +68,9 @@ type="image/svg+xml"
 width="100%"
 pluginspage="http://www.adobe.com/svg/viewer/install/" /></p>
 <h5>數據表結構</h5>
-<pre><code>categories(id, name, _lft, _rgt, parent_id, created_at, updated_at)
-
-</code></pre>
-<p>categories 表大致的字段如上，與樹形結構相關的字段為 <code>_lft</code>, <code>_rgt</code>, <code>parent_id</code>：
-<em><code>_lft</code></em> 和  <em><code>_rgt</code></em> 用於存儲節點的編號， <em>parent_id</em> 用於存儲父節點的 <em><code>id</code></em>。</p>
+<p>categories(id, name, _lft, _rgt, parent_id, created_at, updated_at)</p>
+<p>categories 表大致的字段如上，與樹形結構相關的字段為  <code>_lft</code> ,  <code>_rgt</code> ,  <code>parent_id</code> ：
+<em><code>_lft</code></em>  和   <em><code>_rgt</code></em>  用於存儲節點的編號， <em>parent_id</em>  用於存儲父節點的  <em><code>id</code></em> 。</p>
 <p>詳細的表結構和示例數據參見<em>附件</em> 👉 <a href="assets/attachments/2018/0128/categories.sql">categories.sql</a></p>
 <style>
 .data-table {
@@ -181,20 +179,19 @@ pluginspage="http://www.adobe.com/svg/viewer/install/" /></p>
         else `_rgt` end 
     where 
         (`_lft` &gt;= 15 or `_rgt` &gt;= 15);
-        
-</code></pre>
-<pre><code>insert into `categories` 
+
+insert into `categories` 
     (`name`, `parent_id`, `_lft`, `_rgt`, `created_at`) 
 values 
     ("Linux", 6, 15, 16, "2018-01-28 10:10:00");
-    
 </code></pre>
+<p><br></p>
 <h5>查詢後代節點</h5>
 <p>以節點「後端」為例，查詢子節點：</p>
 <pre><code>select * from `categories` 
 where `_lft` between 10 and 17 and id &lt;&gt;6;
-
 </code></pre>
+<p><br></p>
 <h5>查詢祖先節點</h5>
 <p>以節點「後端」為例，查詢其祖先節點：</p>
 <pre><code>select * from `categories` 
@@ -204,8 +201,8 @@ where `_lft` between 10 and 17 and id &lt;&gt;6;
     between `_lft` and `_rgt`
   and 
     `id` &lt;&gt; 6;
-    
 </code></pre>
+<p><br></p>
 <h5>樹的深度（分類級別）</h5>
 <p>記根節點所在的層深度為0，則其子節點深度為1，依次類推。
 查詢節點「後端」的深度：</p>
@@ -214,8 +211,8 @@ where `_lft` between 10 and 17 and id &lt;&gt;6;
     (10 between `_d`.`_lft` and `_d`.`_rgt`)
   and 
      `_d`.`_lft` &lt;&gt; 10; 
-     
 </code></pre>
+<p><br></p>
 <h4>PHP 相關的 PKG</h4>
 <ul>
 <li><a href="https://github.com/etrepat/baum">etrepat/baum</a></li>
