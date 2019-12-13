@@ -12,7 +12,7 @@ ADMINER Chrome 插件 - Adminer A+
 1. 在選項里設置服務器 IP 以及用來助記的別名；
 <img 
     style="width:100%;" 
-    src="https://raw.githubusercontent.com/teamen/adminer-chrome-plugin/master/setting.png"  alt="options.png" 
+    src="assets/images/setting.png"  alt="options.png" 
     title="選項設置"
     align="center"
 />
@@ -20,6 +20,6 @@ ADMINER Chrome 插件 - Adminer A+
 
 <img 
     style="width:100%;" 
-    src="https://raw.githubusercontent.com/teamen/adminer-chrome-plugin/master/demo.jpg"  alt="demo.jpg" 
+    src="assets/images/demo.jpg"  alt="demo.jpg" 
     align="center"/>
 
